@@ -1,0 +1,145 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Tichu Scores",
+  "description": "A compilation of games and hands of the card game Tichu, as played by 642 million Chinese people every day",
+  "type": "object",
+  "properties": {
+    "version": {
+      "decription": "The Tichu score schema version",
+      "type": "number"
+    },
+    "players": {
+      "description": "The set of players who have recorded scores in this data set",
+      "type": "array",
+      "items": {
+        "title": "Player",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "The unique identifier for a player",
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ]
+      }
+    },
+    "games": {
+      "description": "List of games that have been played",
+      "type": "array",
+      "items": {
+        "title": "Game",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "The unique identifier for a game",
+            "type": "number"
+          },
+          "players": {
+            "description": "The set of players in the game in clock-wise order (first and third are partners, as are second and forth) referenced by player id",
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "gameOverScore": {
+            "type": "number"
+          },
+          "gameOver": {
+            "type": "boolean"
+          },
+          "team1Score": {
+            "type": "number"
+          },
+          "team2Score": {
+            "type": "number"
+          },
+          "creationDateTime": {
+            "type": "string"
+          },
+          "hands": {
+            "type": "array",
+            "items": {
+              "title": "Hand",
+              "type": "object",
+              "properties": {
+                "tichuCall0": {
+                  "type": "boolean"
+                },
+                "tichuCall1": {
+                  "type": "boolean"
+                },
+                "tichuCall2": {
+                  "type": "boolean"
+                },
+                "tichuCall3": {
+                  "type": "boolean"
+                },
+                "grandTichuCall0": {
+                  "type": "boolean"
+                },
+                "grandTichuCall1": {
+                  "type": "boolean"
+                },
+                "grandTichuCall2": {
+                  "type": "boolean"
+                },
+                "grandTichuCall3": {
+                  "type": "boolean"
+                },
+                "tichuScore0": {
+                  "type": "number"
+                },
+                "tichuScore1": {
+                  "type": "number"
+                },
+                "cardScore0": {
+                  "type": "number"
+                },
+                "cardScore1": {
+                  "type": "number"
+                },
+                "totalScore0": {
+                  "type": "number"
+                },
+                "totalScore1": {
+                  "type": "number"
+                },
+                "outFirst": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "tichuScore0",
+                "tichuScore1",
+                "cardScore0",
+                "cardScore1",
+                "totalScore0",
+                "totalScore1",
+                "outFirst"
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "players",
+          "gameOver",
+          "team1Score",
+          "team2Score",
+          "creationDateTime"
+        ]
+      }
+    }
+  },
+  "required": [
+    "version",
+    "players",
+    "games"
+  ]
+}
