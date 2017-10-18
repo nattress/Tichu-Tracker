@@ -6,7 +6,7 @@
   "properties": {
     "version": {
       "decription": "The Tichu score schema version",
-      "type": "number"
+      "type": "string"
     },
     "players": {
       "description": "The set of players who have recorded scores in this data set",

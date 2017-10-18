@@ -1,3 +1,6 @@
-
-src/score_converter/obj
+[Bb]in/
+[Oo]bj/
+msbuild.log
+msbuild.err
+msbuild.wrn
 .DS_Store
