@@ -27,5 +27,17 @@ namespace ScoreConverter
             Debug.Assert(this is PListValueNode<bool>);
             return ((PListValueNode<bool>)this).Value;
         }
+
+        public int AsInt()
+        {
+            Debug.Assert(this is PListValueNode<int>);
+            return ((PListValueNode<int>)this).Value;
+        }
+
+        public string AsString()
+        {
+            Debug.Assert(this is PListValueNode<string>);
+            return ((PListValueNode<string>)this).Value;
+        }
     }
 }

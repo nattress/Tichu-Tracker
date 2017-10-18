@@ -12,7 +12,7 @@ namespace ScoreConverter
 
         public List<int> Players;
 
-        public int GameOverScore {get;set;}
+        public int ScoreLimit {get;set;}
         public bool GameOver {get;set;}
         public int Team1Score {get;set;}
         public int Team2Score {get;set;}

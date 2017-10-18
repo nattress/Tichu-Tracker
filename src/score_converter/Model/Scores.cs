@@ -11,5 +11,11 @@ namespace ScoreConverter
         public string Version => "1.0.0";
         public List<Player> Players {get;set;}
         public List<Game> Games {get;set;}
+
+        public Scores()
+        {
+            Players = new List<Player>();
+            Games = new List<Game>();
+        }
     }
 }

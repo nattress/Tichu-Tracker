@@ -21,6 +21,13 @@ namespace ScoreConverter
             }
         }
 
+        public bool ContainsKey(string key)
+        {
+            if (_dict == null)
+                    LazyInit();
+            return _dict.ContainsKey(key);
+        }
+
         private void LazyInit()
         {
             _dict = new Dictionary<string, PListNode>();
