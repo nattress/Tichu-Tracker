@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Xml;
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json.Schema;
 using PlistCS;
 
 namespace ScoreConverter
@@ -19,6 +23,16 @@ namespace ScoreConverter
             {
                 serializer.Serialize(tw, scores);
             }
+            ValidateAgainstSchema();
+        }
+
+        private static void ValidateAgainstSchema()
+        {
+            JsonTextReader jsonReader = new JsonTextReader(File.OpenText("/Users/simonnattress/git/tichu/src/score_converter/test_data/allgames.converted.json"));
+            JSchemaValidatingReader validatingReader = new JSchemaValidatingReader(jsonReader);
+            validatingReader.Schema = JSchema.Load(new JsonTextReader(File.OpenText("/Users/simonnattress/git/tichu/src/score_converter/tichu_schema.json")));
+            JsonSerializer serializer = new JsonSerializer();
+            Scores scores = serializer.Deserialize<Scores>(validatingReader);
         }
     }
 }
